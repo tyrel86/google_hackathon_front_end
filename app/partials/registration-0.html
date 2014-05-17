@@ -1,28 +1,17 @@
 <div class="container">
   <form name="form" class="css-form" novalidate>
-    <div class="row">
-      <div class="col-xs-6">
-        First Name:
-      </div>
-      <div class="col-xs-6">
-        <input type="text" ng-model="user.first_name" name="uFirst" required />
-      </div>
+    <div class="form-group">
+      <label for="uFirst">First Name:</label>
+      <input type="text" ng-model="user.first_name" name="uFirst" required class="form-control" />
     </div>
-    <div class="row">
-      <div class="col-xs-6">
-        Last Name:
-      </div>
-      <div class="col-xs-6">
-        <input type="text" ng-model="user.last_name" name="uFirst" required />
-      </div>
+    <div class="form-group">
+      <label for="uLast">Last Name:</label>
+      <input type="text" ng-model="user.last_name" name="uLast" required class="form-control" />
     </div>
-    <div class="row">
-      <div class="col-xs-6">
-        Phone:
-      </div>
-      <div class="col-xs-6"> 
-        <input type="text" ng-model="user.phone" name="uPhone" required/>
-      <div>
+    <div class="form-group">
+      <label for="uPhone">Phone:</label>
+      <input type="text" ng-model="user.phone" name="uPhone" required class="form-control" />
     </div>
+    <button ng-click="submit()" ng-disabled="form.$invalid">Submit</button>
   </form>
 </div>
