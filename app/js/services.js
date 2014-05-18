@@ -2,23 +2,13 @@
 
 /* Services */
 
-// var phonecatServices = angular.module('phonecatServices', ['ngResource']);
-
-// phonecatServices.factory('Phone', ['$resource',
-//   function($resource){
-//     return $resource('phones/:phoneId.json', {}, {
-//       query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
-//     });
-//   }]);
-
-// phones/phones.json :id   -> phoneId.json
-
+window.apihost = 'http://10.21.1.82:3000';
 
 var usersServices = angular.module('usersServices', ['ngResource']);
 
 usersServices.factory('User', ['$resource',
     function($resource) {
-        return $resource('json/survivors.json', {}, {
+        return $resource(window.apihost + '/api/v1/users/search', {}, {
             query: {
                 method: 'GET',
                 params: {

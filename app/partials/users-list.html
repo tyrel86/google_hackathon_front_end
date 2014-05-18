@@ -14,8 +14,8 @@
       <br />
       <br />
       <br />
-      <input type="radio" ng-model="typeFilter" value="survivor"> Survivor <br/>
-      <input type="radio" ng-model="typeFilter" value="volunteer"> Volunteer <br/>
+      <input type="radio" ng-model="type" value="survivor"> Survivor <br/>
+      <input type="radio" ng-model="type" value="volunteer"> Volunteer <br/>
 
 
     </div>
@@ -23,11 +23,13 @@
       <!--Body content-->
 
       <ul class="phones">
-        <li ng-repeat="user in users | filter:query | userPropFilter:typeFilter"
+        <li ng-repeat="user in users | filter:query | userPropFilter:type"
             class="thumbnail phone-listing">
-          <a href="#/users/{{user.guid}}" class="thumb"><img ng-src="{{user.picture}}"></a>
-          <a href="#/users/{{user.guid}}">{{user.name}}</a>
-          <p>{{user.snippet}}</p>
+          <a href="#/users/{{user.id}}" class="thumb"></a>
+          <a href="#/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a>
+          <p>{{user.email}}</p>
+          <p>{{user.phone}}</p>
+          <p>{{user.type}}</p>
         </li>
       </ul>
 

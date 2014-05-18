@@ -4,13 +4,14 @@
 
 var userControllersMod = angular.module('usersControllers', []);
 
-userControllersMod.controller('UserCtrl', ['$scope', '$http',
-    function($scope, $http) {
-        $http.get('json/survivors.json').success(function(data) {
-            $scope.users = data;
+userControllersMod.controller('UserCtrl', ['$scope', '$http', 'User',
+    function($scope, $http, User) {
+        $scope.users = [];
+        User.query(function(data) { 
+          $scope.users = data;
         });
 
-        $scope.typeFilter = 'survivor';
+        $scope.type = 'survivor';
     }
 ]);
 
