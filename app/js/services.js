@@ -2,7 +2,7 @@
 
 /* Services */
 
-window.apiURL = 'http://localhost:3000/api/v1';
+window.apiURL = "http://108.59.82.227/api/v1";
 
 
 var usersServices = angular.module('usersServices', ['ngResource']);
