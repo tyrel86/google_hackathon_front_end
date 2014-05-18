@@ -8,7 +8,9 @@ userControllersMod.controller('UserCtrl', ['$scope', '$http',
     function($scope, $http) {
         $http.get('json/survivors.json').success(function(data) {
             $scope.users = data;
-        })
+        });
+
+        $scope.typeFilter = 'survivor';
     }
 ]);
 
@@ -37,3 +39,17 @@ userControllersMod.controller('StartCtrl', ['$scope', '$routeParams', '$location
       }
     }
 ]);
+
+userControllersMod.filter('userPropFilter', function() {
+  return function(input, filterProp) {
+    if(!input) { return true;  }
+
+    var results = [];
+    for(var i=0; i < input.length; i++) {
+      if(input[i].type == filterProp) {
+        results.push(input[i]);
+      }
+    }
+    return results;
+  }
+})

@@ -4,18 +4,26 @@
       <!--Sidebar content-->
 
       Search: <input ng-model="query">
-<!--       Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select> -->
+      Medical Need:
+      <select ng-model="medicalFilter">
+        <option value="">- None -</option>
+        <option value="Diabetes">Diabetes</option>
+        <option value="Open Wounds">Open Wounds</option>
+      </select>
+
+      <br />
+      <br />
+      <br />
+      <input type="radio" ng-model="typeFilter" value="survivor"> Survivor <br/>
+      <input type="radio" ng-model="typeFilter" value="volunteer"> Volunteer <br/>
+
 
     </div>
     <div class="col-md-10">
       <!--Body content-->
 
       <ul class="phones">
-        <li ng-repeat="user in users | filter:query"
+        <li ng-repeat="user in users | filter:query | userPropFilter:typeFilter"
             class="thumbnail phone-listing">
           <a href="#/users/{{user.guid}}" class="thumb"><img ng-src="{{user.picture}}"></a>
           <a href="#/users/{{user.guid}}">{{user.name}}</a>

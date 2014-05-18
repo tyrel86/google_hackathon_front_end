@@ -1,5 +1,6 @@
 [{
     "id": 0,
+    "type": "survivor",
     "guid": "847b5946-4cb3-45f2-ac46-3b7ec81e1eff",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -29,6 +30,7 @@
     "conditions": "diabetes"
 }, {
     "id": 1,
+    "type": "volunteer",
     "guid": "92381cb0-16e6-438a-aed5-3a79bdb89a37",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -58,6 +60,7 @@
     "conditions": "diabetes"
 }, {
     "id": 2,
+    "type": "volunteer",
     "guid": "a0a58ce8-052e-41c0-96a9-bd52a2702fae",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -87,6 +90,7 @@
     "conditions": "diabetes"
 }, {
     "id": 3,
+    "type": "volunteer",
     "guid": "7577b66e-3297-4788-8d76-5707f9e299b7",
     "checkedIn": false,
     "picture": "http://placehold.it/32x32",
@@ -116,6 +120,7 @@
     "conditions": "high blood pressure"
 }, {
     "id": 4,
+    "type": "volunteer",
     "guid": "29c499f6-22c9-4852-b003-deb8004d8399",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -145,6 +150,7 @@
     "conditions": "asthma"
 }, {
     "id": 5,
+    "type": "survivor",
     "guid": "98aed0e1-b0a5-4733-9e17-727b4399c800",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -174,6 +180,7 @@
     "conditions": "diabetes"
 }, {
     "id": 6,
+    "type": "volunteer",
     "guid": "811f244e-d6f7-4261-a8d0-fc24898f8de6",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -203,6 +210,7 @@
     "conditions": "diabetes"
 }, {
     "id": 7,
+    "type": "survivor",
     "guid": "b310c7e3-83d8-4ee0-b07b-ec9104bba302",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -232,6 +240,7 @@
     "conditions": "diabetes"
 }, {
     "id": 8,
+    "type": "survivor",
     "guid": "66f6441b-cfd9-4e8d-8d3c-2c26d8a1c143",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -261,6 +270,7 @@
     "conditions": "diabetes"
 }, {
     "id": 9,
+    "type": "volunteer",
     "guid": "0191e51b-886b-46e3-bb7a-7a93ff4584b9",
     "checkedIn": false,
     "picture": "http://placehold.it/32x32",
@@ -290,6 +300,7 @@
     "conditions": "high blood pressure"
 }, {
     "id": 10,
+    "type": "volunteer",
     "guid": "38f8e80f-a555-4c37-a6f8-a2ec6f5ec82b",
     "checkedIn": false,
     "picture": "http://placehold.it/32x32",
@@ -319,6 +330,7 @@
     "conditions": "asthma"
 }, {
     "id": 11,
+    "type": "volunteer",
     "guid": "7deb2cd8-c764-4ea9-8cb6-76fca3edfa7e",
     "checkedIn": false,
     "picture": "http://placehold.it/32x32",
@@ -348,6 +360,7 @@
     "conditions": "diabetes"
 }, {
     "id": 12,
+    "type": "volunteer",
     "guid": "e47ebca8-2e4d-436a-a809-a46f370f69e8",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -377,6 +390,7 @@
     "conditions": "diabetes"
 }, {
     "id": 13,
+    "type": "volunteer",
     "guid": "5a7a1f25-2596-42e1-91e3-2ef786e5510f",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -406,6 +420,7 @@
     "conditions": "diabetes"
 }, {
     "id": 14,
+    "type": "survivor",
     "guid": "e253b421-bcd9-488a-a8e3-ae3dbaf536c2",
     "checkedIn": false,
     "picture": "http://placehold.it/32x32",
@@ -435,6 +450,7 @@
     "conditions": "diabetes"
 }, {
     "id": 15,
+    "type": "survivor",
     "guid": "cade7986-f3fa-47d7-8b05-95e6fd46c021",
     "checkedIn": false,
     "picture": "http://placehold.it/32x32",
@@ -464,6 +480,7 @@
     "conditions": "diabetes"
 }, {
     "id": 16,
+    "type": "survivor",
     "guid": "a7059e4e-7cb8-488a-a133-83d0d765504c",
     "checkedIn": true,
     "picture": "http://placehold.it/32x32",
@@ -492,36 +509,8 @@
     }],
     "conditions": "high blood pressure"
 }, {
-    "id": 17,
-    "guid": "dadfaff4-35d9-4bb7-b8de-4aef510ab13a",
-    "checkedIn": false,
-    "picture": "http://placehold.it/32x32",
-    "age": 40,
-    "name": "Hodges Hull",
-    "gender": "male",
-    "email": "hodgeshull@furnafix.com",
-    "phone": "(809) 414-3332",
-    "userType": "survivor",
-    "address": "904 Malbone Street, Cochranville, CO, 6051",
-    "latitude": 40.312599,
-    "longitude": -104.845167,
-    "damages": [
-        "cat",
-        "car"
-    ],
-    "family": [{
-        "id": 0,
-        "name": "Townsend Bradley"
-    }, {
-        "id": 1,
-        "name": "Fern Bradford"
-    }, {
-        "id": 2,
-        "name": "Boyer Mcfarland"
-    }],
-    "conditions": "diabetes"
-}, {
     "id": 18,
+    "type": "survivor",
     "guid": "abc3ee7c-22c7-4e7f-88a6-9af57b0cd0ea",
     "checkedIn": false,
     "picture": "http://placehold.it/32x32",
