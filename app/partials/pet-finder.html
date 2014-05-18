@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Save My Pet's Ass</h1>
+  <div class="row" ng-repeat="pet in pets" style="margin: 5px;">
+    <div class="col-sm-3">
+      <img ng-src="{{pet.media.photos.photo[0].$t}}" height="100" width="100" />
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        Age: {{pet.age.$t}}
+      </div>
+      <div class="row">
+        Sex: {{pet.sex.$t}}
+      </div>
+      <div class="row">
+        Breed: {{pet.breeds.breed.$t}}
+      </div>
+    </div>
+  </div>
+</div>

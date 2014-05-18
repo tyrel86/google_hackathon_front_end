@@ -34,6 +34,10 @@ usersApp.config(['$routeProvider',
             templateUrl: 'partials/user-detail.html',
             controller: 'UserDetailCtrl'
         }).
+        when('/pet_finder', {
+            templateUrl: 'partials/pet-finder.html',
+            controller: 'PetFinderCtrl'
+        }).
         otherwise({
             redirectTo: '/start'
         });
