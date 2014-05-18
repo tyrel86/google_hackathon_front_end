@@ -144,7 +144,7 @@ userControllersMod.controller('Register1Ctrl', ['$scope', '$routeParams', '$loca
                 method: 'GET'
             }).success(function(data) {
                 // debugger;
-                // $location.path('/users/' + data.user.id);
+                $location.path('/users/' + data.user.id);
             });
         }
     }
