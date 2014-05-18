@@ -112,7 +112,7 @@ userControllersMod.controller('Register1Ctrl', ['$scope', '$routeParams', '$loca
         })
 
         $scope.addFamilyMember = function() {
-            debugger;
+            // debugger;
             $scope.familyMembers.push({
                 firstName: "",
                 lastName: "",
@@ -120,7 +120,32 @@ userControllersMod.controller('Register1Ctrl', ['$scope', '$routeParams', '$loca
             });
         },
         $scope.submit = function() {
+            // debugger;
             console.log('submit the data!');
+            var concerns = "concerns";
+            if ($scope.newUser.medical){
+                concerns = concerns + ",medical"
+            }
+            if ($scope.newUser.financial){
+            concerns = concerns + ",financial"
+            }
+            if ($scope.newUser.food){
+            concerns = concerns + ",food"
+            }
+            var updateUser = {
+                id: $scope.newUser.id,
+                user_email:$scope.newUser.email,
+                user_other_concerns: concerns
+            }
+
+            $http({
+                url: window.apiURL + '/users/update',
+                params: updateUser,
+                method: 'GET'
+            }).success(function(data) {
+                // debugger;
+                // $location.path('/users/' + data.user.id);
+            });
         }
     }
 ]);
