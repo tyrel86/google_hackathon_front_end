@@ -6,14 +6,29 @@
 					<img src="{{user.photo_url}}" />
 				</div>
 				<div class="col-md-6">
-					<h3>{{user.first_name}} {{user.last_name}}</h3>
-					<p>{{user.physical_street_1}} {{user.physical_street_2}}</p>
-					<p>{{user.physical_city}}, {{user.physical_state}} {{user.physical_zipcode}}</p>
+					<h3>{{user.first_name}}&nbsp;{{user.last_name}}</h3>
+					<p>{{user.cell_phone}}</p>
+					<p>{{user.email}}</p>
+					<p>{{user.physical_street_1}}&nbsp;{{user.physical_street_2}}</p>
+					<p>{{user.physical_city}}&nbsp;{{user.physical_state}}&nbsp;{{user.physical_zipcode}}</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
-					<h3>Special Needs</h3>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Special Needs</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4" ng-show="user.medical">Medical : 
+						<span class="glyphicon glyphicon-plus"></span>
+					</div>
+					<div class="col-xs-4" ng-show="user.financial">Financial:
+						<span class="glyphicon glyphicon-usd"></span>
+					</div>
+					<div class="col-xs-4" ng-show="user.food">Food: 
+						<span class="glyphicon glyphicon-cutlery"></span>
+					</div>
 				</div>
 			</div>
 		</div>

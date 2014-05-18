@@ -18,11 +18,15 @@ userControllersMod.controller('UsersCtrl', ['$scope', '$http', 'User',
 
 userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User', '$http',
     function($scope, $routeParams, User, $http) {
+        $scope.user = {};
+
         $http({
             url: window.apiURL + '/users/' + $routeParams.userId,
             method: 'GET'
         }).success(function(data) {
             $scope.user = data
+            $scope.user.other_concerns.split(',').map(function(item,index){$scope.user[item]= true})
+            // debugger;
         });
     }
 ]);
