@@ -1,30 +1,31 @@
 <div class="container-fluid">
+
   <div class="row filters">
     <div class="col-md-12">
-      <!--Sidebar content-->
+			<div class="row">
+				<div class="col-md-4">
+					Search: <input ng-model="query">
+					Medical Need:
+					<select ng-model="medicalFilter">
+						<option value="">- None -</option>
+						<option value="Diabetes">Diabetes</option>
+						<option value="Open Wounds">Open Wounds</option>
+					</select>
+				</div>
 
-      Search: <input ng-model="query">
-      Medical Need:
-      <select ng-model="medicalFilter">
-        <option value="">- None -</option>
-        <option value="Diabetes">Diabetes</option>
-        <option value="Open Wounds">Open Wounds</option>
-      </select>
-
-      <br />
-      <br />
-      <br />
-      <input type="radio" ng-model="type" value="survivor"> Survivor <br/>
-      <input type="radio" ng-model="type" value="volunteer"> Volunteer <br/>
-
-
+				<div class="col-md-8">
+					<input type="radio" ng-model="type" value="survivor"> Survivor <br/>
+					<input type="radio" ng-model="type" value="volunteer"> Volunteer <br/>
+				</div>
+			</div>
     </div>
 	</div>
-	<div class="header">
-		<div class="col-md-8">
+
+	<div class="row users-index">
+		<div class="col-md-8 map">
 			<div id="map-canvas"/>
 		</div>
-    <div class="col-md-4">
+    <div class="col-md-4 list">
       <!--Body content-->
 
       <ul class="phones">

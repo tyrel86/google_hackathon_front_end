@@ -5,10 +5,9 @@
 var usersApp = angular.module('usersApp', [
     'ngRoute',
     'phonecatAnimations',
-
     'usersControllers',
     'usersFilters',
-    'usersServices'
+    'usersServices',
 ]);
 
 usersApp.config(['$routeProvider',
@@ -28,7 +27,7 @@ usersApp.config(['$routeProvider',
         }).
         when('/users', {
             templateUrl: 'partials/users-list.html',
-            controller: 'UserCtrl'
+            controller: 'UsersCtrl'
         }).
         when('/users/:userId', {
             templateUrl: 'partials/user-detail.html',
@@ -39,3 +38,40 @@ usersApp.config(['$routeProvider',
         });
     }
 ]);
+
+window.SaveMyAss = {}
+SaveMyAss.markers = [];
+SaveMyAss.map_init = function() {
+	var mapOptions = {
+		center: new google.maps.LatLng(40, -106),
+		zoom: 7,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+	};
+	SaveMyAss.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+}
+SaveMyAss.clear_markers = function() {
+	$.each(SaveMyAss.markers, function(index, marker) {
+		marker.setMap(null)
+	});
+	SaveMyAss.markers = []
+}
+SaveMyAss.addMarkers = function(results) {
+
+	$.each(results, function(index, user) {
+		var userLatlng = new google.maps.LatLng(user.last_lat, user.last_lng);
+		var marker = new google.maps.Marker({
+				position: userLatlng,
+				title: user.first_name + " " + user.last_name
+		});
+		SaveMyAss.markers.push(marker);
+	});
+
+	$.each(SaveMyAss.markers, function(index, markers) {
+		markers.setMap(SaveMyAss.map);
+	});
+}
+SaveMyAss.draw_map = function(results) {
+	SaveMyAss.map_init();
+	SaveMyAss.clear_markers();
+	SaveMyAss.addMarkers(results);
+}

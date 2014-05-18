@@ -7,6 +7,9 @@
 	text-align: center;
 }
 
+.row.header .filter-engage-disingage {
+	text-align: center;
+}
 .row.header .filter-engage-disingage:hover {
 	cursor: pointer;
 	cursor: hand;
@@ -19,4 +22,12 @@
 .row.header .filter-engage-disingage .label {
 	color: black;
 	font-size: 27px;
+	position: relative;
+	top:4px;
 }
+
+.row.filters {
+	background-color: #CFCFCF;
+	padding: 20px;
+}
+

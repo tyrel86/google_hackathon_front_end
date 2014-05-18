@@ -4,16 +4,21 @@
 
 var userControllersMod = angular.module('usersControllers', []);
 
-userControllersMod.controller('UserCtrl', ['$scope', '$http', 'User',
-    function($scope, $http, User) {
-        $scope.users = [];
-        User.query(function(data) {
-            $scope.users = data;
-        });
+userControllersMod.controller('UsersCtrl', ['$scope', '$http', 'User',
 
-        $scope.type = 'survivor';
-    }
+	function($scope, $http, User) {
+		$scope.users = [];
+
+
+		//After ajax call
+		User.query(function(data) {
+			$scope.users = data;
+		});
+
+		$scope.type = 'survivor';
+	}
 ]);
+
 
 userControllersMod.controller('HeaderCtrl', ['$scope', '$http', 'User',
     function($scope, $http, User) {
@@ -109,6 +114,7 @@ userControllersMod.filter('userPropFilter', function() {
                 results.push(input[i]);
             }
         }
+				SaveMyAss.draw_map(results);
         return results;
     }
 })
