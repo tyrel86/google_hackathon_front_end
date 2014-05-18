@@ -28,13 +28,22 @@ userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User
 
 userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', 'User',
     function($scope, $routeParams, User) {
-        $scope.familyMembers = [];
+        $scope.newUser = {
+            firstName: "Bob",
+            lastName: "Bobiton",
+            mainPhone: "303-123-1234",
+            email: "",
+            familyMembers: []
+        };
         $scope.addFamilyMember = function() {
-            $scope.familyMembers.push({
-                firstName: "dfgdfgdfg",
+            $scope.newUser.familyMembers.push({
+                firstName: "",
                 lastName: "",
                 dob: ""
             });
+        },
+        $scope.submit = function() {
+            debugger;
         }
     }
 ]);
