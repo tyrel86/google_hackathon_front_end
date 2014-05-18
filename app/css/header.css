@@ -1,0 +1,22 @@
+.row.header {
+	border-bottom: 3px solid black;
+	padding: 10px;
+}
+
+.row.header .logo  {
+	text-align: center;
+}
+
+.row.header .filter-engage-disingage:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.row.header .filter-engage-disingage img {
+	width: 42px;
+}
+
+.row.header .filter-engage-disingage .label {
+	color: black;
+	font-size: 27px;
+}

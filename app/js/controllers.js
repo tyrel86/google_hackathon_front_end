@@ -15,6 +15,12 @@ userControllersMod.controller('UserCtrl', ['$scope', '$http', 'User',
     }
 ]);
 
+userControllersMod.controller('HeaderCtrl', ['$scope', '$http', 'User',
+    function($scope, $http, User) {
+			$scope.message = "Welcome to.."
+    }
+]);
+
 userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User',
     function($scope, $routeParams, User) {
         $scope.user = User.get({
