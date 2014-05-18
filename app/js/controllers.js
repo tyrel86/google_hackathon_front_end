@@ -6,59 +6,61 @@ var userControllersMod = angular.module('usersControllers', []);
 
 userControllersMod.controller('UsersCtrl', ['$scope', '$http', 'User',
 
-	function($scope, $http, User) {
-		//After ajax call
-		User.query(function(data) {
-			$scope.users = data;
-		});
+    function($scope, $http, User) {
+        //After ajax call
+        User.query(function(data) {
+            $scope.users = data;
+        });
 
-		$scope.type = 'survivor';
-	}
+        $scope.type = 'survivor';
+    }
 ]);
 
 userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User', '$http',
-	function($scope, $routeParams, User, $http) {
-		$http({
-			url: window.apiURL + '/users/' + $routeParams.userId,
-			method: 'GET'
-		}).success(function(data) {
-			$scope.user = data
-		});
-	}
+    function($scope, $routeParams, User, $http) {
+        $http({
+            url: window.apiURL + '/users/' + $routeParams.userId,
+            method: 'GET'
+        }).success(function(data) {
+            $scope.user = data
+        });
+    }
 ]);
 
 
 userControllersMod.controller('HeaderCtrl', ['$scope', '$http', 'User',
     function($scope, $http, User) {
-			$scope.message = "Welcome to.."
+        $scope.message = "Welcome to.."
     }
 ]);
 
 userControllersMod.controller('PetFinderCtrl', ['$scope',
     function($scope) {
-      $scope.animal_types = ["barnyard", "bird", "cat", "dog", "horse", "pig", "reptile", "smallfurry"];
-      $scope.animal_type = "cat";
+        $scope.animal_types = ["barnyard", "bird", "cat", "dog", "horse", "pig", "reptile", "smallfurry"];
+        $scope.animal_type = "cat";
 
 
-      $scope.refresh = function() {
-        var typeFilter = '&animal=' + $scope.animal_type;
-        $.getJSON('http://api.petfinder.com/pet.find?format=json&key=f6c88b745b5f55ea539c65ebac486d05&location=80211&callback=?' + typeFilter)
-          .done(function(petApiData) { 
-            $scope.pets = petApiData.petfinder.pets.pet;
-            $scope.$apply();
-          })
-          .error(function(err) { alert('Error retrieving data!');});
-      }
+        $scope.refresh = function() {
+            var typeFilter = '&animal=' + $scope.animal_type;
+            $.getJSON('http://api.petfinder.com/pet.find?format=json&key=f6c88b745b5f55ea539c65ebac486d05&location=80211&callback=?' + typeFilter)
+                .done(function(petApiData) {
+                    $scope.pets = petApiData.petfinder.pets.pet;
+                    $scope.$apply();
+                })
+                .error(function(err) {
+                    alert('Error retrieving data!');
+                });
+        }
 
-      $scope.refresh();
+        $scope.refresh();
     }
 ]);
 
 userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$location', '$http',
     function($scope, $routeParams, $location, $http) {
         $scope.set_coordinates = function(position) {
-          $scope.latitude = position.coords.latitude;
-          $scope.longitude = position.coords.longitude;
+            $scope.latitude = position.coords.latitude;
+            $scope.longitude = position.coords.longitude;
         }
 
         navigator.geolocation.getCurrentPosition($scope.set_coordinates);
@@ -93,15 +95,18 @@ userControllersMod.controller('Register1Ctrl', ['$scope', '$routeParams', '$loca
         // have access to the newUser in the DOM
         $scope.newUser = {};
 
+        // empty family members array
+        $scope.familyMembers = [];
+
         // get just created user info
         $http.get(window.apiURL + '/users/' + userId).success(function(data) {
             $scope.newUser = data;
-            $scope.newUser.familyMembers = [];
             // debugger;
         })
 
         $scope.addFamilyMember = function() {
-            $scope.newUser.familyMembers.push({
+            debugger;
+            $scope.familyMembers.push({
                 firstName: "",
                 lastName: "",
                 dob: ""
@@ -122,17 +127,17 @@ userControllersMod.controller('StartCtrl', ['$scope', '$routeParams', '$location
 
 userControllersMod.filter('userPropFilter', function() {
     return function(input, filterProp) {
-			if (!input) {
-					return true;
-			}
+        if (!input) {
+            return true;
+        }
 
-			var results = [];
-			for (var i = 0; i < input.length; i++) {
-					if (input[i].type == filterProp) {
-							results.push(input[i]);
-					}
-			}
-			SaveMyAss.draw_map(results);
-			return results;
+        var results = [];
+        for (var i = 0; i < input.length; i++) {
+            if (input[i].type == filterProp) {
+                results.push(input[i]);
+            }
+        }
+        SaveMyAss.draw_map(results);
+        return results;
     }
 })
