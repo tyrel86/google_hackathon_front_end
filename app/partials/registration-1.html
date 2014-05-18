@@ -20,7 +20,7 @@
       <div class="col-sm-12">
         <div class="row">
           <div class="col-sm-12">
-            <p>HouseHold:</p>
+            <h5>HouseHold:</h5>
           </div>
         </div>
         <div class="row">
@@ -28,7 +28,7 @@
             <button type="button" class="btn btn-default" ng-click="addFamilyMember()">Add Family Member</button>
           </div>
         </div>
-          <div class="row" ng-repeat="member in newUser.familyMembers">
+          <div class="row" ng-repeat="member in familyMembers">
             <div class="col-sm-12">
             <div class="row">
               <div class="col-xs-6"><div class="form-group">
@@ -42,12 +42,39 @@
             </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-xs-12"><h5>Needs:</h5></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="checkbox text-left">
+                <label>
+                  <input type="checkbox" value="medical" ng-model="newUser.medical"> Medical
+                </label>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="checkbox text-left">
+                <label>
+                  <input type="checkbox" value="financial" ng-model="newUser.financial"> Financial
+                </label>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="checkbox text-left">
+                <label>
+                  <input type="checkbox" value="food" ng-model="newUser.food"> Food
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <button type="button" class="btn btn-primary" ng-disabled="form.$invalid" ng-click="submit()">Submit</button>
+    </form>
     </div>
 
-    <button type="button" class="btn btn-primary" ng-disabled="form.$invalid" ng-click="submit()">Submit</button>
-    </form>
+    
 </div>
 </div>
 </div>
