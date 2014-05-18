@@ -1,0 +1,28 @@
+.form-group {
+	text-align: center;
+	display: block;
+}
+
+.form-group label {
+	width: 100px;
+    padding-right: 20px;
+    display: inline-block;
+}
+
+.form-group input[type="text"], input[type="email"], textarea, select{
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    width: 400px;
+    display: inline-block;
+}
+
+.form-group > span {
+	color: red;
+	font-style: italic;
+	width: 100px;
+}
+
+.container form {
+	text-align: center;
+}

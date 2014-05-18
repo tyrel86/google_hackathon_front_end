@@ -59,14 +59,15 @@ userControllersMod.controller('PetFinderCtrl', ['$scope',
 userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$location', '$http',
     function($scope, $routeParams, $location, $http) {
         $scope.set_coordinates = function(position) {
-            $scope.latitude = position.coords.latitude;
-            $scope.longitude = position.coords.longitude;
+            $scope.location = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            }
         }
 
         navigator.geolocation.getCurrentPosition($scope.set_coordinates);
 
         $scope.goTo = function(path) {
-
             var tempUser = {
                 user_first_name: $scope.newUser.firstName,
                 user_last_name: $scope.newUser.lastName,
@@ -78,19 +79,26 @@ userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$locat
                 params: tempUser,
                 method: 'GET'
             }).success(function(data) {
+                $scope.setLocation(data.user.id);
                 $location.path(path + '/' + data.user.id);
             });
         }
 
-
+        $scope.setLocation = function(user_id) {
+            if (!$scope.location) {
+                return true;
+            }
+            $http({
+                url: window.apiURL + '/users/' + user_id + '/update_last_location',
+                params: $scope.location,
+                method: 'GET'
+            })
+        }
     }
 ]);
 userControllersMod.controller('Register1Ctrl', ['$scope', '$routeParams', '$location', '$http',
     function($scope, $routeParams, $location, $http) {
-
-
         var userId = $routeParams.id;
-        // debugger;
 
         // have access to the newUser in the DOM
         $scope.newUser = {};
@@ -101,7 +109,6 @@ userControllersMod.controller('Register1Ctrl', ['$scope', '$routeParams', '$loca
         // get just created user info
         $http.get(window.apiURL + '/users/' + userId).success(function(data) {
             $scope.newUser = data;
-            // debugger;
         })
 
         $scope.addFamilyMember = function() {
