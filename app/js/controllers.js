@@ -46,20 +46,6 @@ userControllersMod.controller('PetFinderCtrl', ['$scope',
     }
 ]);
 
-userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User',
-    function($scope, $routeParams, User) {
-        $scope.user = User.get({
-            userId: $routeParams.guid
-        }, function(user) {
-            $scope.mainImageUrl = user.picture;
-        });
-
-        $scope.setImage = function(imageUrl) {
-            $scope.mainImageUrl = imageUrl;
-        }
-    }
-]);
-
 userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$location', '$http',
     function($scope, $routeParams, $location, $http) {
         $scope.set_coordinates = function(position) {
