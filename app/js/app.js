@@ -8,6 +8,7 @@ var usersApp = angular.module('usersApp', [
     'usersControllers',
     'usersFilters',
     'usersServices',
+    'ui.mask'
 ]);
 
 usersApp.config(['$routeProvider',

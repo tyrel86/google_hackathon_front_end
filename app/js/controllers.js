@@ -35,9 +35,44 @@ userControllersMod.controller('HeaderCtrl', ['$scope', '$http', 'User',
     }
 ]);
 
+<<<<<<< HEAD
+=======
+userControllersMod.controller('PetFinderCtrl', ['$scope',
+    function($scope) {
+      $.getJSON('http://api.petfinder.com/pet.find?format=json&key=f6c88b745b5f55ea539c65ebac486d05&location=80211&callback=?')
+        .done(function(petApiData) { 
+          $scope.pets = petApiData.petfinder.pets.pet;
+          $scope.$apply();
+        })
+        .error(function(err) { alert('Error retrieving data!');});
+      window.lol = $scope;
+    }
+]);
+
+userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User',
+    function($scope, $routeParams, User) {
+        $scope.user = User.get({
+            userId: $routeParams.guid
+        }, function(user) {
+            $scope.mainImageUrl = user.picture;
+        });
+
+        $scope.setImage = function(imageUrl) {
+            $scope.mainImageUrl = imageUrl;
+        }
+    }
+]);
+>>>>>>> 3ed8b43a1ccc7feb81e9c98ee84a3543c1afc2d1
 
 userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$location', '$http',
     function($scope, $routeParams, $location, $http) {
+        $scope.set_coordinates = function(position) {
+          $scope.latitude = position.coords.latitude;
+          $scope.longitude = position.coords.longitude;
+        }
+
+        navigator.geolocation.getCurrentPosition($scope.set_coordinates);
+
         $scope.goTo = function(path) {
 
             var tempUser = {
@@ -45,6 +80,10 @@ userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$locat
                 user_last_name: $scope.newUser.lastName,
                 user_cell_phone: $scope.newUser.mainPhone
             };
+<<<<<<< HEAD
+=======
+            // initial create user on server
+>>>>>>> 3ed8b43a1ccc7feb81e9c98ee84a3543c1afc2d1
             $http({
                 url: window.apiURL + '/users/create',
                 params: tempUser,
