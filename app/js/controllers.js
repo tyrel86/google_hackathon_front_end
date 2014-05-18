@@ -7,12 +7,16 @@ var userControllersMod = angular.module('usersControllers', []);
 userControllersMod.controller('UsersCtrl', ['$scope', '$http', 'User',
 
 	function($scope, $http, User) {
-		//After ajax call
 		User.query(function(data) {
+      for(var i=0; i < data.length; i++) {
+        data[i].selected = false;
+      }
 			$scope.users = data;
 		});
 
 		$scope.type = 'survivor';
+
+    window.lol = $scope;
 	}
 ]);
 

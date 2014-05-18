@@ -26,3 +26,7 @@
 .user-detail img {
 	width: 100%;
 }
+
+.user_selected {
+  background-color:lightblue;
+}
