@@ -42,6 +42,13 @@ userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User
 
 userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$location', '$http',
     function($scope, $routeParams, $location, $http) {
+        $scope.set_coordinates = function(position) {
+          $scope.latitude = position.coords.latitude;
+          $scope.longitude = position.coords.longitude;
+        }
+
+        navigator.geolocation.getCurrentPosition($scope.set_coordinates);
+
         $scope.goTo = function(path) {
 
             var tempUser = {
@@ -49,8 +56,6 @@ userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', '$locat
                 user_last_name: $scope.newUser.lastName,
                 user_cell_phone: $scope.newUser.mainPhone
             };
-            // console.log($http);
-            // debugger;
             // initial create user on server
             $http({
                 url: window.apiURL + '/users/create',
