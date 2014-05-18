@@ -2,13 +2,14 @@
 
 /* Services */
 
-window.apihost = 'http://10.21.1.82:3000';
+window.apiURL = 'http://10.21.1.82:3000/api/v1';
+
 
 var usersServices = angular.module('usersServices', ['ngResource']);
 
 usersServices.factory('User', ['$resource',
     function($resource) {
-        return $resource(window.apihost + '/api/v1/users/search', {}, {
+        return $resource(window.apiURL + '/users/search', {}, {
             query: {
                 method: 'GET',
                 params: {
@@ -17,5 +18,13 @@ usersServices.factory('User', ['$resource',
                 isArray: true
             }
         });
+    }
+]);
+
+usersServices.factory('CurrentUser', ['$resource',
+    function($resource) {
+        var current = {};
+
+        return current;
     }
 ]);

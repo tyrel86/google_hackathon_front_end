@@ -2,17 +2,17 @@
 <div class="row">
   <div class="col-sm-12">
     <form action="" method="" role="form">
-    <legend>Name:&nbsp;{{newUser.firstName}}&nbsp;{{newUser.lastName}}</legend>
+    <legend>Name:&nbsp;{{newUser.first_name}}&nbsp;{{newUser.last_name}}</legend>
     <div class="row">
       <div class="col-sm-12">
-        <p>Phone Number:&nbsp;{{newUser.mainPhone}}</p>
+        <p>Phone Number:&nbsp;{{newUser.cell_phone}}</p>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="">Email</label>
-          <input type="email" class="form-control" id="" placeholder="Email" ng-model="newUser.email">
+          <input type="email" class="form-control" id="" required placeholder="Email" ng-model="newUser.email">
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
     
     
 
-    <button type="button" class="btn btn-primary" ng-click="submit()">Submit</button>
+    <button type="button" class="btn btn-primary" ng-disabled="form.$invalid" ng-click="submit()">Submit</button>
     </form>
 </div>
 </div>

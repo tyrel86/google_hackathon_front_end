@@ -22,9 +22,9 @@ usersApp.config(['$routeProvider',
             templateUrl: 'partials/registration-0.html',
             controller: 'RegisterCtrl'
         }).
-        when('/register1', {
+        when('/register1/:id', {
             templateUrl: 'partials/registration-1.html',
-            controller: 'RegisterCtrl'
+            controller: 'Register1Ctrl'
         }).
         when('/users', {
             templateUrl: 'partials/users-list.html',
