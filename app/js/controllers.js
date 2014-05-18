@@ -25,7 +25,9 @@ userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User
             method: 'GET'
         }).success(function(data) {
             $scope.user = data
+            if ($scope.user.other_concerns){
             $scope.user.other_concerns.split(',').map(function(item,index){$scope.user[item]= true})
+            }
             // debugger;
         });
     }
