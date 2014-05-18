@@ -5,15 +5,46 @@
 var userControllersMod = angular.module('usersControllers', []);
 
 userControllersMod.controller('UsersCtrl', ['$scope', '$http', 'User',
+	function($scope, $http, User) {
+		User.query(function(data) {
+      for(var i=0; i < data.length; i++) {
+        data[i].selected = false;
+      }
+			$scope.users = data;
+		});
 
-    function($scope, $http, User) {
-        //After ajax call
-        User.query(function(data) {
-            $scope.users = data;
-        });
-
-        $scope.type = 'survivor';
+    $scope.selectUser = function(user) {
+      user.selected = !user.selected;
     }
+
+    $scope.selectNone = function() {
+      for(var i=0; i < $scope.users.length; i++) {
+        $scope.users[i].selected = false;
+      }
+    }
+
+    $scope.sendText = function(user) {
+      $http({
+        url: window.apiURL + '/users/' + user.id + '/text',
+        params: {body: $scope.messageBody},
+        method: 'GET'
+      })
+    }
+
+    $scope.sendTexts = function() {
+      for(var i=0; i < $scope.users.length; i++) {
+        if($scope.users[i].selected) {
+          $scope.sendText($scope.users[i]);
+        }
+      }
+      $scope.selectNone();
+      $('#myModal').modal('hide')
+    }
+
+		$scope.type = 'survivor';
+
+    window.lol = $scope;
+	}
 ]);
 
 userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User', '$http',
@@ -181,7 +212,10 @@ userControllersMod.filter('userPropFilter', function() {
                 results.push(input[i]);
             }
         }
-        SaveMyAss.draw_map(results);
+        if(window.previousFilterCount != results.length) {
+          window.previousFilterCount = results.length;
+          SaveMyAss.draw_map(results);
+        }
         return results;
     }
 })
