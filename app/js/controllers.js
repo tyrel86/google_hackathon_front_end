@@ -24,10 +24,16 @@ userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User
             url: window.apiURL + '/users/' + $routeParams.userId,
             method: 'GET'
         }).success(function(data) {
-            $scope.user = data
+            $scope.user = data;
             if ($scope.user.other_concerns){
             $scope.user.other_concerns.split(',').map(function(item,index){$scope.user[item]= true})
-            }
+            };
+            // debugger;
+            if ($scope.user.last_lat){
+                $scope.user.mapurl = "http://maps.google.com/maps?q=description+(name)+%40"+$scope.user.last_lat+","+$scope.user.last_lng+"&output=embed";
+                $scope.user.map = true;
+                // document.mapbox.location.href = $scope.user.mapurl;
+            };
             // debugger;
         });
     }
