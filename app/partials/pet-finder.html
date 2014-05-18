@@ -1,5 +1,10 @@
 <div class="container">
   <h1>Save My Pet's Ass</h1>
+  <div>
+    <select ng-model="animal_type" ng-options="type for type in animal_types" ng-change="refresh" >
+    </select>
+</select>
+  </div>
   <div class="row" ng-repeat="pet in pets" style="margin: 5px;">
     <div class="col-sm-3">
       <img ng-src="{{pet.media.photos.photo[0].$t}}" height="100" width="100" />

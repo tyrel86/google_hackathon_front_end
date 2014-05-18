@@ -36,13 +36,21 @@ userControllersMod.controller('HeaderCtrl', ['$scope', '$http', 'User',
 
 userControllersMod.controller('PetFinderCtrl', ['$scope',
     function($scope) {
-      $.getJSON('http://api.petfinder.com/pet.find?format=json&key=f6c88b745b5f55ea539c65ebac486d05&location=80211&callback=?')
-        .done(function(petApiData) { 
-          $scope.pets = petApiData.petfinder.pets.pet;
-          $scope.$apply();
-        })
-        .error(function(err) { alert('Error retrieving data!');});
-      window.lol = $scope;
+      $scope.animal_types = ["barnyard", "bird", "cat", "dog", "horse", "pig", "reptile", "smallfurry"];
+      $scope.animal_type = "cat";
+
+
+      $scope.refresh = function() {
+        var typeFilter = '&animal=' + $scope.animal_type;
+        $.getJSON('http://api.petfinder.com/pet.find?format=json&key=f6c88b745b5f55ea539c65ebac486d05&location=80211&callback=?' + typeFilter)
+          .done(function(petApiData) { 
+            $scope.pets = petApiData.petfinder.pets.pet;
+            $scope.$apply();
+          })
+          .error(function(err) { alert('Error retrieving data!');});
+      }
+
+      $scope.refresh();
     }
 ]);
 
