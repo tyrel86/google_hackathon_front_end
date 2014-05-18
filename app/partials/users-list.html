@@ -22,23 +22,19 @@
 	</div>
 
 	<div class="row users-index">
-		<div class="col-md-8 map">
+		<div class="col-md-8 map .hidden-phone">
 			<div id="map-canvas"/>
 		</div>
     <div class="col-md-4 list">
-      <!--Body content-->
-
-      <ul class="phones">
-        <li ng-repeat="user in users | filter:query | userPropFilter:type"
-            class="thumbnail phone-listing">
-          <a href="#/users/{{user.id}}" class="thumb"></a>
-          <a href="#/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a>
-          <p>{{user.email}}</p>
-          <p>{{user.phone}}</p>
-          <p>{{user.type}}</p>
-        </li>
-      </ul>
-
+			<div class="row user" ng-repeat="user in users | filter:query | userPropFilter:type" class="thumbnail phone-listing">
+				<div class="col-md-12">
+					<a href="#/users/{{user.id}}" class="thumb"><img src='{{user.photo_url}}' /></a>
+					<p><a href="#/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></p>
+					<p><a href="mailto:{{ user.email }}">{{user.email}}</a></p>
+					<p><a href="tel:{{ user.phone}}">{{user.phone}}</a></p>
+					<p>{{user.type}}</p>
+				</div>
+			</div>
     </div>
   </div>
 </div>

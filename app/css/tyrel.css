@@ -7,3 +7,22 @@
 	height: 700px;
 	overflow-y: auto;
 }
+
+.users-index .user img {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	top: 15px;
+	border: 1px solid #CFCFCF;
+	padding: 3px;
+}
+
+.users-index .user {
+	border-bottom: 1px solid black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.user-detail img {
+	width: 100%;
+}

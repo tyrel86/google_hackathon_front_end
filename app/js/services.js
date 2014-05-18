@@ -8,17 +8,14 @@ window.apiURL = 'http://10.21.1.82:3000/api/v1';
 var usersServices = angular.module('usersServices', ['ngResource']);
 
 usersServices.factory('User', ['$resource',
-    function($resource) {
-        return $resource(window.apiURL + '/users/search', {}, {
-            query: {
-                method: 'GET',
-                params: {
-                    userId: 'users'
-                },
-                isArray: true
-            }
-        });
-    }
+	function($resource) {
+		return $resource(window.apiURL + '/users/search', {}, {
+				query: {
+						method: 'GET',
+						isArray: true
+				}
+		});
+	}
 ]);
 
 usersServices.factory('CurrentUser', ['$resource',

@@ -63,6 +63,23 @@ SaveMyAss.addMarkers = function(results) {
 				position: userLatlng,
 				title: user.first_name + " " + user.last_name
 		});
+
+		var contentString = "<div>" +
+			"<a href='#/users/" + user.id + "'>" +
+			"<h3>" + user.first_name + " " + user.last_name + "</h3></a>" +
+			"<p><a href='mailto:" + user.email + "'>" + user.email + "</a></p>" +
+			"<a href='tel:" + user.phone + "'>" + user.phone + "</a>" +
+			"<p>" + user.type + "</p>" +
+			"</div>";
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(SaveMyAss.map,marker);
+		});
+
 		SaveMyAss.markers.push(marker);
 	});
 
