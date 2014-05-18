@@ -14,6 +14,34 @@ userControllersMod.controller('UsersCtrl', ['$scope', '$http', 'User',
 			$scope.users = data;
 		});
 
+    $scope.selectUser = function(user) {
+      user.selected = !user.selected;
+    }
+
+    $scope.selectNone = function() {
+      for(var i=0; i < $scope.users.length; i++) {
+        $scope.users[i].selected = false;
+      }
+    }
+
+    $scope.sendText = function(user) {
+      $http({
+        url: window.apiURL + '/users/' + user.id + '/text',
+        params: {body: $scope.messageBody},
+        method: 'GET'
+      })
+    }
+
+    $scope.sendTexts = function() {
+      for(var i=0; i < $scope.users.length; i++) {
+        if($scope.users[i].selected) {
+          $scope.sendText($scope.users[i]);
+        }
+      }
+      $scope.selectNone();
+      $('#myModal').modal('hide')
+    }
+
 		$scope.type = 'survivor';
 
     window.lol = $scope;
