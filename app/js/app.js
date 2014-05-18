@@ -133,3 +133,14 @@ SaveMyAss.addMarker_user = function(user) {
 
     marker.setMap(SaveMyAss.map);
 }
+SaveMyAss.clear_markers_user = function() {
+  $.each(SaveMyAss.markers, function(index, marker) {
+    marker.setMap(null)
+  });
+  SaveMyAss.markers = []
+}
+SaveMyAss.draw_map_user = function(user) {
+  SaveMyAss.map_init_user();
+  SaveMyAss.clear_markers_user();
+  SaveMyAss.addMarker_user(user);
+}
