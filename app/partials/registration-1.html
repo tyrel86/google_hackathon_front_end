@@ -1,0 +1,55 @@
+<div class="container">
+<div class="row">
+  <div class="col-sm-12">
+    <form action="" method="POST" role="form">
+    <legend>Name:&nbsp;{{user.name}}</legend>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>Phone Number:&nbsp;{{user.phone}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="email" class="form-control" id="" placeholder="Email">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            <p>HouseHold:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="button" class="btn btn-default" ng-click="addFamilyMember()">Add Family Member</button>
+          </div>
+        </div>
+          <div class="row" ng-repeat="member in familyMembers">
+            <div class="col-sm-12">
+            <div class="row">
+              <div class="col-xs-6"><div class="form-group">
+                <label for="">Member:{{$index+1}}&nbsp;&nbsp;First Name</label>
+                <input type="text" class="form-control" id="" placeholder="First">
+              </div></div>
+              <div class="col-xs-6"><div class="form-group">
+                <label for="">Member:{{$index+1}}&nbsp;&nbsp;Last Name</label>
+                <input type="text" class="form-control" id="" placeholder="Last">
+              </div></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</div>
+</div>

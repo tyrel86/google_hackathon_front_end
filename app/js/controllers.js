@@ -28,12 +28,20 @@ userControllersMod.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User
 
 userControllersMod.controller('RegisterCtrl', ['$scope', '$routeParams', 'User',
     function($scope, $routeParams, User) {
+        $scope.familyMembers = [];
+        $scope.addFamilyMember = function() {
+            $scope.familyMembers.push({
+                firstName: "dfgdfgdfg",
+                lastName: "",
+                dob: ""
+            });
+        }
     }
 ]);
 userControllersMod.controller('StartCtrl', ['$scope', '$routeParams', '$location',
     function($scope, $routeParams, $location) {
-      $scope.goTo = function(path) {
-        $location.path(path);
-      }
+        $scope.goTo = function(path) {
+            $location.path(path);
+        }
     }
 ]);

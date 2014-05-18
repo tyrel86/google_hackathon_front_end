@@ -22,6 +22,10 @@ usersApp.config(['$routeProvider',
             templateUrl: 'partials/registration-0.html',
             controller: 'RegisterCtrl'
         }).
+        when('/register1', {
+            templateUrl: 'partials/registration-1.html',
+            controller: 'RegisterCtrl'
+        }).
         when('/users', {
             templateUrl: 'partials/users-list.html',
             controller: 'UserCtrl'
